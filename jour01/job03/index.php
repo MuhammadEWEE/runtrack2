@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    $BL = true;
+    $BL = "TRUE";
     $ITG = 420;
     $STR = "HELLO";
     $FL = 99.99;
