@@ -6,22 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-        <?php
-        // Créez le tableau contenant les nombres spécifiés
-        $nombres = [200, 204, 173, 98, 171, 404, 459];
-
-        // Parcourez le tableau
-        foreach ($nombres as $nombre) {
-            // Vérifiez si le nombre est pair ou impair
-            if ($nombre % 2 == 0) {
-                // Affichez que le nombre est pair
-                echo "$nombre est paire<br />";
-            } else {
-                // Affichez que le nombre est impair
-                echo "$nombre est impaire<br />";
+<div>
+        <table border="1">
+            <tr>
+                <th>Number</th>
+                <th>Status</th>
+            </tr>
+            <?php
+            $numbers = [200, 204, 173, 98, 171, 404, 459];
+            foreach ($numbers as $number) {
+                echo "<tr>";
+                echo "<td>$number</td>";
+                if ($number % 2 == 0) {
+                    echo "<td>Pair</td>";
+                } else {
+                    echo "<td>Unpair</td>";
+                }
+                echo "</tr>";
             }
-        }
-        ?>
-   
+            ?>
+        </table>
+    </div>
 </body>
 </html>
