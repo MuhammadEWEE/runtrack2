@@ -7,15 +7,23 @@
 </head>
 <body>
 <form action="index.php" method="get">
-   Name: <input type="text" name="name" />
-   Age: <input type="text" name="surname" />
-   <input type="submit" />
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="firstname">firstname:</label>
+        <input type="text" id="age" name="age"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <input type="submit" value="Submit">
 </form>
 <?php
-if(!empty($_GET)){
-   $number_argument_get = count($_GET);
-    echo "<p>The number of argument is : $number_argument_get</p>";
-}
-?> 
+    $count = 0;
+    foreach ($_GET as $key => $value) {
+        $count++;
+    }
+
+    echo "The number of GET arguments sent is: " . $count;
+    ?>
+
+
 </body>
 </html>
