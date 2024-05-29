@@ -44,7 +44,7 @@
             // Draw the body of the house
             for ($i = 0; $i < $height; $i++) {
                 echo "|";
-                for ($j = 0; $j < 2 * $width; $j++) {
+                for ($j = 0; $j < 2 * $height; $j++) {
                     echo "&nbsp;";
                 }
                 echo "|";
