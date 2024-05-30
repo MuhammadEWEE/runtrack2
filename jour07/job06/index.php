@@ -14,7 +14,7 @@
 
     <?php
     if(isset($_POST['submit'])) {
-        echo "<p>Leet Speak is: "  . leetSpeak($_POST['stringInput']) . "</p>";
+        echo "<p>Leet Speak is :"  . leetSpeak($_POST['stringInput']) . "</p>";
     }
     function leetSpeak($str){
         $leetMap = [
