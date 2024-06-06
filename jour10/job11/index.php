@@ -10,11 +10,11 @@
 
 $mysqli = mysqli_connect("localhost", "root", "", "jour09");
 
-$sql = "SELECT AVG(capacite) AS moyenne_capacite FROM salle";
+$sql = "SELECT AVG(capacite) AS average_capacity FROM salle";
 $result = mysqli_query($mysqli, $sql);
 
 
-echo "<table>";
+echo "<table border = '1'>";
 
 // Get field names for table header
 $fields = mysqli_fetch_fields($result);
