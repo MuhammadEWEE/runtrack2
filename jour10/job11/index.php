@@ -10,7 +10,7 @@
 
 $mysqli = mysqli_connect("localhost", "root", "", "jour09");
 
-$sql = "SELECT * FROM salle ORDER BY capacite DESC";
+$sql = "SELECT AVG(capacite) AS moyenne_capacite FROM salle";
 $result = mysqli_query($mysqli, $sql);
 
 
