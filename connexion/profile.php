@@ -43,6 +43,8 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Modifier le profil</title>
+    <link rel="stylesheet" href="./profile.css">
+    
 </head>
 <body>
     <h1>Modifier le profil</h1>

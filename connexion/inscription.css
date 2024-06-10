@@ -1,0 +1,27 @@
+body {
+    padding-top: 280px;
+    background-image: url(SignInCat.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color:#e36906; 
+    text-shadow: 0px 0px 5px #cefbd1,0px 2px 5px #06f1d1,0px -2px 5px #00ff89;
+ 
+  }
+  
+input{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    padding-top: 5px;
+    /* padding-bottom: 10px; */
+  }
+ 

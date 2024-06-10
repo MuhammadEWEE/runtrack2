@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM utilisateurs";
+$sql = "SELECT * FROM user";
 $result = $conn->query($sql);
 ?>
 
@@ -20,6 +20,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Administration</title>
+    <link rel="stylesheet" href="./admin.css">
 </head>
 <body>
     <h1>Administration</h1>
