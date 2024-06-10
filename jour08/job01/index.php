@@ -5,7 +5,7 @@ if(!isset($_SESSION['nbvisits'])){
 $_SESSION['nbvisits']=0;
 }
 if(isset($_POST['reset'])){
-$_SESSION['nbvisits']=0;
+$_SESSION['nbvisits']= 0;
 }else{
     $_SESSION['nbvisits']++;
 }
