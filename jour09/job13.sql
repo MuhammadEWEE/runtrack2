@@ -1,0 +1,1 @@
+SELECT AVG(capacite) AS average_capacity FROM salle;

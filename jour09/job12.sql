@@ -1,0 +1,1 @@
+SELECT capacite FROM salle ORDER BY capacite DESC;
