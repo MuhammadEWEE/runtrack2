@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=form, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <form  method="post" action="">
-        <label for="str">Text</label>
-        <input type="text" id="str" name="str" required>
-
-        <label for="function">Function</label>
-        <select id="function" name="function" required>
-            <option value="bold">Bold</option>
-            <option value="ceasar">Ceasar</option>
-            <option value="laplateforme">La Plateforme</option>
-        </select>
-
-        <label for="ceasarShift">Text position shift for ceasar :</label>
-        <input type="number" id="ceasarShift" name="ceasarShift">
-
-        <button type="submit" name="submit">Transform Text</button>
-
+    <h1>Transform Letter</h1>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        Type your words : <input type="text" name="str" required><br>
+        Choose type of transform :
+        <select name="function">
+            <option value="bold">Bold with first letter as capital.</option>
+            <option value="cesar">Shift 2 letter (Ceasar code)</option>
+            <option value="platform">Put underscore after word "me"</option>
+        </select><br>
+        <input type="submit" name="submit" value="Transformer">
     </form>
 
     <?php
-    if (isset ($_POST['submit'])){
-        $str = ($_POST['str']);
-        $function = ($_POST['function']);
-        $ceasarShift = isset ($_POST['ceasarShift']) ? intval($_POST['ceasarShift']) : 2;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $str = $_POST["str"];
+        $function = $_POST["function"];
 
-        if ($function == 'bold'){
-            echo bold($str);
-        }else if ($function == 'ceasar'){
-            echo ceasar($str,$offset);
-        }elseif ($function == 'laplateforme'){
-            echo laplateforme($str);
+        switch ($function) {
+            case "bold":
+                echo bold($str);
+                break;
+            case "cesar":
+                $offset = 2; // Décalage de 2 caractères par défaut
+                echo cesar($str, $offset);
+                break;
+            case "platform":
+                echo platform($str);
+                break;
+            default:
+                echo "Fonction de transformation invalide.";
         }
-
     }
+
     function bold($str) {
         $words = explode(" ", $str);
         $result = "";
