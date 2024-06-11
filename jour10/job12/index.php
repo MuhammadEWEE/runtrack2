@@ -17,9 +17,9 @@
    <table border =1px solid>
     <thead>
         <tr>
-            <td>ID</td>
             <td>Prenom</td>
             <td>Nom</td>
+            <td>Naissance</td>
            
         </tr>
     </thead>

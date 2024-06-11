@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Data</title>
-   
+    <title>Data inner from 2 tables</title>
 </head>
 <body>
+<?php
 
-    <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "jour09";
 
-   
-     $mysqli = mysqli_connect("localhost","root","","jour09");
-     $result = mysqli_query($mysqli,"SELECT nom FROM `salle`,`etage`");
-     $column = mysqli_query($mysqli,"SHOW COLUMNS FROM `salle`,`etage`");?>
-   
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-     <table border =1px solid>
-     <thead>
-         <tr>
-           
-             <td>nom des salles</td>
-             <td>nom de leur étage.</td>
-            
-            
-         </tr>
-       </thead>
-      <?php
-        echo "<tbody>";
-        // foreach ($result as $row){
-        //     echo "<tr>";
-        //     foreach($row as $value){
-        //       echo "<td>" . $value . "</td>";
-        //     }
-        //     echo "</tr>";
-        // }
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["salle"] . "</td>";
-            echo "<td>" . $row["etage"] . "</td>";
-            echo "</tr>";
-        }
-    ?>
+if ($conn->connect_error) {
+    die("Connection fail: " . $conn->connect_error);
+}
+
+$sql = "SELECT nom FROM salle UNION ALL SELECT nom FROM etage";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  
+    echo "<table border='1'>";
+    echo "<tr><th>Nom des salles et des etages</th></tr>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["nom"]. "</td></tr>";
+    }
+
+    echo "</table>";
+} else {
+    echo "0 result";
+}
+
+$conn->close();
+?>
 </body>
 </html>

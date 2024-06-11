@@ -33,14 +33,45 @@
         if ($function == 'bold'){
             echo bold($str);
         }else if ($function == 'ceasar'){
-            echo ceasar($str,$ceasarShift);
+            echo ceasar($str,$offset);
         }elseif ($function == 'laplateforme'){
             echo laplateforme($str);
         }
 
     }
-    function bold($str){
+    function bold($str) {
+        $words = explode(" ", $str);
+        $result = "";
+        foreach ($words as $word) {
+            $result .= "<b>" . ucfirst($word) . "</b> ";
+        }
+        return trim($result);
+    }
 
+    function cesar($str, $offset) {
+        $result = "";
+        for ($i = 0; $i < strlen($str); $i++) {
+            $char = $str[$i];
+            if (ctype_alpha($char)) {
+                $result .= chr(ord($char) + $offset);
+            } else {
+                $result .= $char;
+            }
+        }
+        return $result;
+    }
+
+    function platform($str) {
+        $words = explode(" ", $str);
+        $result = "";
+        foreach ($words as $word) {
+            if (substr($word, -2) == "me") {
+                $result .= $word . "_" . " ";
+            } else {
+                $result .= $word . " ";
+            }
+        }
+        return trim($result);
     }
     ?>
 </body>
